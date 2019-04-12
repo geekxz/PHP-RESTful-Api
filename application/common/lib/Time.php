@@ -1,16 +1,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: baidu
- * Date: 17/7/28
- * Time: 上午12:27
+ * User: 陈东东
+ * Date: 19/4/12
+ * Time: 上午10:22
  */
 namespace app\common\lib;
 
-
 /**
  * 时间
- * Class IAuth
+ * Class Time
  */
 class Time {
 

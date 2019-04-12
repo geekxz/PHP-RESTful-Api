@@ -8,7 +8,7 @@
 namespace app\common\lib\exception;
 use think\exception\Handle;
 
-class ApiHandleException extends  Handle {
+class ApiHandleException extends Handle {
 
     /**
      * http 状态码

@@ -11,4 +11,19 @@
 
 use think\Route;
 
-Route::get('test','api:ver/test/index');
+//get
+Route::get('test', 'api/test/index');
+Route::put('test/:id', 'api/test/update');// 修改
+Route::delete('test/:id', 'api/test/delete');// delete
+
+
+Route::resource('test', 'api/test');
+/// x.com/test  post  => api test save
+
+
+
+Route::get('api/:ver/index', 'api/:ver.index/index');	// 首页接口
+Route::get('api/:ver/init', 'api/:ver.index/init');		// 客户端初始化接口
+
+
+

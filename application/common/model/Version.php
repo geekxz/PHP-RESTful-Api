@@ -16,7 +16,7 @@ class Version extends Base {
      * @param string $appType
      */
     public function getLastNormalVersionByAppType($appType = '') {
-        $data = [
+        $map = [
             'status' => 1,
             'app_type' => $appType,
         ];
@@ -25,7 +25,7 @@ class Version extends Base {
             'id' => 'desc',
         ];
 
-        return $this->where($data)
+        return $this->where($map)
             ->order($order)
             ->limit(1)
             ->find();

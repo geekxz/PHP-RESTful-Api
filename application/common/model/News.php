@@ -16,14 +16,14 @@ class News extends Base {
      * @param array $data
      */
     public function getNews($data = []) {
-        $data['status'] = [
+        $map['status'] = [
             'neq', config('code.status_delete')
         ];
 
         $order = ['id' => 'desc'];
         // 查询
 
-        $result = $this->where($data)
+        $result = $this->where($map)
             ->order($order)
             ->paginate();
         // 调试
@@ -77,7 +77,7 @@ class News extends Base {
      * @return array
      */
     public function getIndexHeadNormalNews($num = 4) {
-        $data = [
+        $map = [
             'status' => 1,
             'is_head_figure' => 1,
         ];
@@ -86,7 +86,7 @@ class News extends Base {
             'id' => 'desc',
         ];
 
-        return $this->where($data)
+        return $this->where($map)
             ->field($this->_getListField())
             ->order($order)
             ->limit($num)
@@ -97,7 +97,7 @@ class News extends Base {
      * 获取推荐的数据
      */
     public function getPositionNormalNews($num = 20) {
-        $data = [
+        $map = [
             'status' => 1,
             'is_position' => 1,
         ];
@@ -106,7 +106,7 @@ class News extends Base {
             'id' => 'desc',
         ];
 
-        return $this->where($data)
+        return $this->where($map)
             ->field($this->_getListField())
             ->order($order)
             ->limit($num)
@@ -120,7 +120,7 @@ class News extends Base {
      * @return false|\PDOStatement|string|\think\Collection
      */
     public function getRankNormalNews($num = 5) {
-        $data = [
+        $map = [
             'status' => 1,
         ];
 
@@ -128,7 +128,7 @@ class News extends Base {
             'read_count' => 'desc',
         ];
 
-        return $this->where($data)
+        return $this->where($map)
             ->field($this->_getListField())
             ->order($order)
             ->limit($num)
